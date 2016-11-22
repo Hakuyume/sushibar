@@ -1,9 +1,9 @@
 (defvar sushibar:images
   (list
-   (create-image "~/misc/sushibar/akami.png")
-   (create-image "~/misc/sushibar/ebi.png")
-   (create-image "~/misc/sushibar/tai.png")
-   (create-image "~/misc/sushibar/tamago.png")))
+   (create-image "akami.png")
+   (create-image "ebi.png")
+   (create-image "tai.png")
+   (create-image "tamago.png")))
 
 (defun sushibar:push()
     (setq mode-line-format
