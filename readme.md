@@ -10,5 +10,5 @@ M-x load-file RET sushibar.el RET
 ```
 1. Execute sushibar:setup.
 ```
- M-x sushibar:setup RET
+M-x sushibar:setup RET
 ```
