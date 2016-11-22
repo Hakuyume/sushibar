@@ -20,4 +20,4 @@ M-x sushibar:setup RET
 ```
 
 ## Known issues
-- Sushi is unstoppable.
+- Sushi is unstoppable (there is no stop command).
