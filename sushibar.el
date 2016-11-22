@@ -1,16 +1,31 @@
-(defcustom sushibar:speed 2 "speed of sushi")
-(defcustom sushibar:distance 8 "distance from next sushi")
-(defun sushibar:string()
-  (let ((pos (-
-              (- sushibar:distance 1)
-              (% (truncate (* (float-time) sushibar:speed)) sushibar:distance))))
-    (concat
-     (make-string pos ? )
-     (apply 'concat (make-list
-                     (ceiling (/ (window-body-width) sushibar:distance))
-                     (concat "🍣" (make-string (- sushibar:distance 1) ? )))))))
+(defvar sushibar:images
+  (list
+   (create-image "~/misc/sushibar/akami.png")
+   (create-image "~/misc/sushibar/ebi.png")
+   (create-image "~/misc/sushibar/tai.png")
+   (create-image "~/misc/sushibar/tamago.png")))
+
+(defun sushibar:push()
+    (setq mode-line-format
+          (append
+           mode-line-format
+           (list
+            (list
+             (make-string 2 ? )
+             (propertize " " 'display (nth (random (length sushibar:images)) sushibar:images)))))))
+
+(defun sushibar:pop()
+    (setq mode-line-format
+          (cdr mode-line-format)))
+
 (defun sushibar:setup()
   (interactive)
-  (setq mode-line-format '((:eval (sushibar:string))))
+  (setq mode-line-format '())
+  (dotimes (i (window-body-width))
+    (sushibar:push))
   (setq sushibar:timer
-        (run-at-time t 1 'force-mode-line-update)))
+        (run-at-time t 1
+                     (lambda()
+                       (sushibar:push)
+                       (sushibar:pop)
+                       (force-mode-line-update)))))
