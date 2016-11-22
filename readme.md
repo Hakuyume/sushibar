@@ -2,6 +2,9 @@
 
 Sushibar in Emacs mode-line.
 
+## Demo
+![demo](demo.gif)
+
 ## Usage
 
 1. Load sushibar.el.
