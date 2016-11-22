@@ -1,6 +1,7 @@
 # sushibar.el
 
-Sushibar in Emacs mode-line.
+Sushibar in Emacs mode-line.  
+It's inspired by [pocke/sushibar.vim](https://github.com/pocke/sushibar.vim).
 
 ## Demo
 ![demo](demo.gif)
